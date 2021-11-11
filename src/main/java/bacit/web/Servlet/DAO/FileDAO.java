@@ -3,17 +3,15 @@ package bacit.web.Servlet.DAO;
 import bacit.web.Servlet.Models.FileModel;
 import bacit.web.Servlet.UTILS.DBUtils;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.sql.rowset.serial.SerialBlob;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class FileDAO {
 
     public void persistFile(FileModel file) throws Exception {
+
          Connection db = DBUtils.getINSTANCE().getConnection();
             String query6 = "insert into MytestDB.Files (Name, Content, ContentType) values(?,?,?)";
 

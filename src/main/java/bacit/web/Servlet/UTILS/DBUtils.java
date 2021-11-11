@@ -24,9 +24,6 @@ public class DBUtils {
      * password=12345
      * URL=jdbc:mariadb://172.17.0.1:3308/MytestDB
      *
-
-     * @return connection to db
-     * @throws SQLException if the connection fails
      */
     public Connection getConnection() throws SQLException, ClassNotFoundException {
         Connection toReturn = null;
