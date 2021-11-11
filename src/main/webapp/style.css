@@ -1,0 +1,36 @@
+body {
+    background-color:#f0b223;
+
+}
+#form {
+    text-align: center;
+    font-family: "Times New Roman", serif;
+}
+h1 {
+    color: #041e42;
+}
+
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    opacity: 0.8;
+}
+[type=text], input[type=password]{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+#AMVLogo {
+    position: absolute;
+    left: 0;
+    padding:10px;
+
+}

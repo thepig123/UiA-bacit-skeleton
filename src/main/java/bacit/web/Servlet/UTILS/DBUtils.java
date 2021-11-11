@@ -1,4 +1,4 @@
-package bacit.web.bacit_web;
+package bacit.web.Servlet.UTILS;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -24,11 +24,11 @@ public class DBUtils {
      * password=12345
      * URL=jdbc:mariadb://172.17.0.1:3308/MytestDB
      *
-     * @param out for html printing in front-end e.g. (for errors or content)
+
      * @return connection to db
      * @throws SQLException if the connection fails
      */
-    public Connection getConnection(PrintWriter out) throws SQLException, ClassNotFoundException {
+    public Connection getConnection() throws SQLException, ClassNotFoundException {
         Connection toReturn = null;
         Class.forName("org.mariadb.jdbc.Driver");
         try {
@@ -40,9 +40,9 @@ public class DBUtils {
                     "12345");
         } catch (SQLException e) {
             e.printStackTrace();
-            out.println("SQL Exception " + e);
         }
         return toReturn;
     }
+
 }
 
