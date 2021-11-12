@@ -14,6 +14,9 @@ public class FileModel {
         this.contentType = contentType;
     }
 
+    public FileModel(int id, String name) {
+    }
+
     public String getContentType() {
         return contentType;
     }

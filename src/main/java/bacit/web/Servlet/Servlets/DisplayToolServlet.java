@@ -20,9 +20,7 @@ public class DisplayToolServlet extends HttpServlet {
 
         try {
             request.setAttribute("Tools", ListTools());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         request.getRequestDispatcher("DisplayTools.jsp").forward(request,response);

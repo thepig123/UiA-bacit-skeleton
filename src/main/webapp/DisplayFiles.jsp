@@ -1,4 +1,5 @@
 <%@ page import="bacit.web.Servlet.Models.FileModel" %>
+<%@ page import="bacit.web.Servlet.DAO.FileDAO" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -33,11 +34,11 @@
     </thead>
 
         <% ArrayList<FileModel> tempFiles = (ArrayList<FileModel>) request.getAttribute("Files");
-    for (FileModel File : tempFiles) {
+    for (FileModel Files : tempFiles) {
         out.println("<tr>" +
-"        <td>"+ File.getName()+"</td>\n" +
-"        <td>"+ Arrays.toString(File.getContents())+"</td>\n" +
-"        <td>"+File.getContentType()+"</td>\n" + "</td></tr>");
+"        <td>"+ Files.getName()+"</td>\n" +
+"        <td>"+ Arrays.toString(Files.getContents())+"</td>\n" +
+"        <td>"+Files.getContentType()+"</td>\n" + "</td></tr>");
     }
 %>
 

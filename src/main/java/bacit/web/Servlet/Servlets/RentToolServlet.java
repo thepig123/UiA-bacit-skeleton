@@ -1,4 +1,4 @@
-package bacit.web.Servlet.Models;
+package bacit.web.Servlet.Servlets;
 
 import bacit.web.Servlet.UTILS.DBUtils;
 

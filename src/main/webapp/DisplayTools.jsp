@@ -1,5 +1,5 @@
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="Models.ToolsModel" %>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="Models.ToolsModel"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!doctype html>
@@ -20,11 +20,12 @@
 </div>
 </div>
 </div>
+<form method="post" action="RentToolServlet">
 <table id="customers">
     <thead>
     <tr>
+        <th>Tool Name></th>
         <th>Availability</th>
-        <th>Tool name</th>
         <th>Price firstDay</th>
         <th>Price followingDays</th>
         <th>Tool info</th>
@@ -36,13 +37,13 @@
         <% ArrayList<ToolsModel> tempTools = (ArrayList<ToolsModel>) request.getAttribute("Tools");
     for (ToolsModel Tool : tempTools) {
         out.println("<tr>" +
-"        <td>"+ Tool.isAvailability()+"</td>\n" +
 "        <td>"+Tool.getTool_name()+"</td>\n" +
+"        <td>"+ Tool.isAvailability()+"</td>\n" +
 "        <td>"+Tool.getPrice_firstDay()+"</td>\n" +
 "        <td>"+Tool.getPrice_followingDays()+ "</td>\n" +
 "        <td>"+Tool.getTool_info()+"</td>\n" +
 "        <td>"+Tool.getTool_type()+"</td>\n" + "</td></tr>");
     }
 %>
-
+</form>
 </body></html>
