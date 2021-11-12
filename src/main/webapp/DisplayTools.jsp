@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>AMV utlån</title>
+    <link rel="stylesheet" href="table.css">
 </head>
 <body>
 
@@ -19,7 +20,7 @@
 </div>
 </div>
 </div>
-<table class="table table-bordered">
+<table id="customers">
     <thead>
     <tr>
         <th>Availability</th>
