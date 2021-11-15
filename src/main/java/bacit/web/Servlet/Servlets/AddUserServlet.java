@@ -16,14 +16,14 @@ import javax.servlet.http.HttpServletResponse;
 import static bacit.web.Servlet.UTILS.PasswordEncrypting.encrypt;
 
 @WebServlet(name = "AddUserServlet", value = "/AddUserServlet")
-public class AddUserServlet extends HttpServlet {
+    public class AddUserServlet extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        addUserhtml(out);
-    }
+        @Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
+            PrintWriter out = response.getWriter();
+            addUserhtml(out);
+        }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

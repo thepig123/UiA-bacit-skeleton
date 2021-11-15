@@ -40,7 +40,6 @@ public class FileUploadServlet extends HttpServlet {
         HtmlHelper.writeHtmlStart(out, "Upload a file");
         try{
             Part filePart = request.getPart("file");
-            out.println("hello");
             String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
             InputStream fileContent = filePart.getInputStream();
             byte[] fileBytes = fileContent.readAllBytes();
