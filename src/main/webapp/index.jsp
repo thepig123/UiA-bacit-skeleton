@@ -11,7 +11,7 @@
 <body>
 <img src="amv-logo.png" alt="amv logo" width="241" height="131" id="AMVLogo"> <br>
 <div id="form">
-    <h1>Login</h1>
+    <h1 class="form"> Login </h1>
     <form class="form" action="CredentialCheckServlet" method="post">
         <label for="Email"> Email </label> <br>
         <input type="text" id="Email" name="User_Email" placeholder="Example@gmail.com"> <br>

@@ -56,7 +56,7 @@ public class CredentialCheckServlet extends HttpServlet {
             db = DBUtils.getINSTANCE().getConnection();
             statement = db.prepareStatement(query4);
             statement.setString(1, Email);
-            statement.setString(2, Password);
+            statement.setString(2, encrypt(Password));
             ResultSet rs;
             rs = statement.executeQuery();
 
