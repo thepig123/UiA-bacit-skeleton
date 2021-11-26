@@ -47,6 +47,7 @@ public class AddToolsServlet extends HttpServlet {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+        
 
         String query5 = "insert into MytestDB.tools (Tool_name, Tool_info, Tool_type, Price_firstDay, Price_followingDays, Availability) " +
                 "values(?, ?, ?, ?, ?, ?); ";

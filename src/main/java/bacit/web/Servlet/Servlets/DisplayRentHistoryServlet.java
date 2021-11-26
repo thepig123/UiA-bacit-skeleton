@@ -9,21 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static bacit.web.Servlet.UTILS.RentAToolDBUtil.*;
+import static bacit.web.Servlet.UTILS.ListRentalHistoryDBUtil.ListRentals;
 
-
-@WebServlet(name = "DisplayToolServlet", value = "/DisplayToolServlet")
-public class DisplayToolServlet extends HttpServlet {
+@WebServlet(name = "DisplayRentHistoryServlet", value = "/DisplayRentHistoryServlet")
+public class DisplayRentHistoryServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         try {
-            request.setAttribute("Tools", ListTools());
+            request.setAttribute("Rentals", ListRentals());
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        request.getRequestDispatcher("RentATool.jsp").forward(request,response);
+        request.getRequestDispatcher("DisplayRentalHistory.jsp").forward(request,response);
 
 
     }

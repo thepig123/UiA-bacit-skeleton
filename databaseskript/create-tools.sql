@@ -29,8 +29,10 @@ values ('Leilighet på Hovden',
         );
 
 
-delete from tools where Item_ID = 29;
+    delete from tools where Item_ID = 29;
 
 select * from tools;
 
-
+SELECT * FROM tools
+Order BY Item_ID
+LIMIT 5;

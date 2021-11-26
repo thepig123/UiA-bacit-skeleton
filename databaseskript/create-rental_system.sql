@@ -37,10 +37,21 @@ Where Item_ID = 8;
 
 SELECT * FROM rental_system;
 
-
+SELECT User_ID, COUNT('Antall')
+FROM rental_system
+GROUP BY User_ID
+ORDER BY COUNT(*) DESC
+LIMIT 3;
 
 
 SELECT * FROM rental_system where Rental_endDate < CURRENT_DATE;
 
+SELECT * FROM rental_system
+ORDER BY Rental_ID
+LIMIT 5;
 
 
+SELECT Item_ID, Rental_endDate, Rental_startDate
+From rental_system
+WHERE User_ID = 1
+Order by Rental_startDate, Rental_endDate;

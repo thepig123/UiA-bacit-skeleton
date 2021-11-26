@@ -27,6 +27,9 @@ values ('Knut Einar',
 SELECT * FROM user;
 
 
+SELECT * FROM user
+Order BY User_ID
+LIMIT 5;
 
 
 select User_firstName, Rental_ID, User_lastName from rental_system inner join user u on rental_system.User_ID = u.User_ID where u.User_ID=2;

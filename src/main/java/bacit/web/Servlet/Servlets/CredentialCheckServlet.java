@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -38,10 +39,14 @@ public class CredentialCheckServlet extends HttpServlet {
 
 
         /* Få hjelp til å fikse admincheck*/
-        if (CheckUser(userEmail, userPassword, out) && CheckAdmin(userEmail, userPassword,out)) {
-            request.getRequestDispatcher("admin.jsp").forward(request,response);
+        if (CheckAdmin(userEmail, userPassword,out)) {
+            request.getRequestDispatcher("Admin.jsp").forward(request,response);
+            HttpSession session = request.getSession();
+            session.setAttribute("email", userEmail);
         } else if (CheckUser(userEmail, userPassword, out) && !CheckAdmin(userEmail, userPassword, out)) {
             request.getRequestDispatcher("HomePage.jsp").forward(request,response);
+            HttpSession session = request.getSession();
+            session.setAttribute("email", userEmail);
         } else if (!CheckUser(userEmail, userPassword, out) && !CheckAdmin(userEmail, userPassword,out)) {
             out.println("Wrong credentials");
         }
@@ -99,7 +104,7 @@ public class CredentialCheckServlet extends HttpServlet {
                 test.setEmail(rs.getString("User_Email"));
                 test.setPassword(rs.getString("User_password"));
             }
-            if (test != null && test.getEmail().equals("admin") && test.getPassword().equals("admin")) {
+            if (test != null && test.getEmail().equals("admin") && test.getPassword().equals(encrypt("admin"))) {
 
                 return true;
             } else {
@@ -111,4 +116,23 @@ public class CredentialCheckServlet extends HttpServlet {
         return false;
     }
 
+    public static int getUserID(HttpSession session) {
+        Connection db;
+        PreparedStatement ps;
+        String email = (String) session.getAttribute("email");
+        try {
+            db = DBUtils.getINSTANCE().getConnection();
+            String query = "SELECT User_ID FROM MytestDB.user WHERE User_Email = ?";
+            ResultSet rs;
+            ps = db.prepareStatement(query);
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+            rs.next();
+            return rs.getInt("User_ID");
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }
