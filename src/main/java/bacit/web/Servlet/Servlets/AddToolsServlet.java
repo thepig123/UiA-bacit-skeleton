@@ -39,22 +39,19 @@ public class AddToolsServlet extends HttpServlet {
             request.getRequestDispatcher("toolsFailed.jsp").forward(request,response);
             return;
         }
-
+        PrintWriter out = response.getWriter();
         Connection db = null;
         try {
-            PrintWriter out = response.getWriter();
             db = DBUtils.getINSTANCE().getConnection();
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-        
 
-        String query5 = "insert into MytestDB.tools (Tool_name, Tool_info, Tool_type, Price_firstDay, Price_followingDays, Availability) " +
-                "values(?, ?, ?, ?, ?, ?); ";
+            String query50 = "insert into MytestDB.tools (Tool_name, Tool_info, Tool_type, Price_firstDay, Price_followingDays, Availability) " +
+                    "values(?, ?, ?, ?, ?, ?)";
+
         assert db != null;
         PreparedStatement statement = null ;
         try {
-            statement = db.prepareStatement(query5);
+            statement = db.prepareStatement(query50);
+
             statement.setString(1, toolName);
             statement.setString(2, toolInfo);
             statement.setString(3, toolType);
@@ -62,12 +59,19 @@ public class AddToolsServlet extends HttpServlet {
             statement.setString(5, priceFollowingDays);
             statement.setBoolean(6, availability);
 
-            statement.execute();
+            statement.executeQuery();
+            System.out.println("hello");
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         request.getRequestDispatcher("addToolSuccess.jsp").forward(request,response);
     }
+
     private void addToolshtml(PrintWriter out) {
         out.println("<!DOCTYPE html>");
         out.println("<html lang=\"en\">");
@@ -77,9 +81,8 @@ public class AddToolsServlet extends HttpServlet {
         out.println("</head>");
         out.println("<body>");
         out.println("<img src=\"amv-logo.png\" alt=\"amv logo\" width=\"241\" height=\"131\" id=\"AMVLogo\"> <br>");
-        out.println("<div id=\"login\">");
         out.println("<h1>Login</h1>");
-        out.println("<form action=\"AddToolsServlet\" method=\"post\">");
+        out.println("<form class=\"form\" action=\"AddToolsServlet\" method=\"post\">");
         out.println("<label for=\"Tool_name\">Tool Name:</label> <br>");
         out.println("<input type=\"text\"  name=\"Tool_name\" placeholder=\"Navnet på utstyret\" required pattern=\".\\S+.\"> <br>");
         out.println("<label for=\"Tool_info\">Tool Info:</label> <br>");
@@ -90,6 +93,8 @@ public class AddToolsServlet extends HttpServlet {
         out.println("<input type=\"text\"  name=\"Price_firstDay\" placeholder=\",-\" required pattern=\".\\S+.\"> <br>");
         out.println("<label for=\"Price_followingDays\">Price following days:</label> <br>");
         out.println("<input type=\"text\"  name=\"Price following days\" placeholder=\",-\" required pattern=\".\\S+.\"> <br>");
+        out.println("<label for=\"Tilgjengelighet\">Tilgjengelighet:</label> <br>");
+        out.println("<input type=\"text\"  name=\"Availability\" placeholder=\",-\" required pattern=\".\\S+.\"> <br>");
         out.println("<input class=\"button\" type=\"Submit\" value=\"Submit\" />");
         out.println("</form>");
         out.println("</body></html>");

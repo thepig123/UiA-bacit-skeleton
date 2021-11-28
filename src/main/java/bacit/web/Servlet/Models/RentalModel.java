@@ -2,9 +2,7 @@ package bacit.web.Servlet.Models;
 
 public class RentalModel {
 
-    String Tool_name;
     int Item_ID;
-    boolean Availability;
     String Damage_report;
     String Rental_startDate;
     String Rental_endDate;
@@ -19,10 +17,6 @@ public class RentalModel {
         Rental_endDate = rental_endDate;
     }
 
-
-    public String getTool_name() {
-        return Tool_name;
-    }
 
     public int getItem_ID() {
         return Item_ID;
@@ -59,11 +53,10 @@ public class RentalModel {
     @Override
     public String toString() {
         return "RentalModel{" +
-                ", Tool_Name='" + Tool_name +
-                ", Item_ID=" + Item_ID +
+                "Item_ID=" + Item_ID +
                 ", Damage_report='" + Damage_report + '\'' +
-                ", Rental_startDate=" + Rental_startDate +
-                ", Rental_endDate=" + Rental_endDate +
+                ", Rental_startDate='" + Rental_startDate + '\'' +
+                ", Rental_endDate='" + Rental_endDate + '\'' +
                 '}';
     }
 }

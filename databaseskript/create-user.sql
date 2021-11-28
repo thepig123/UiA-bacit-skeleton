@@ -5,8 +5,7 @@ create table if not EXISTS user (
     User_firstName varchar(255),
     User_lastName  varchar(255),
     User_Email     varchar(255) UNIQUE,
-    User_password  varchar(255),   /* Finn løsning på kryptering */
-    /* User_admin     boolean,         egne privelegier */
+    User_password  varchar(255),
     User_PhoneNumber int,
     CONSTRAINT U_User_ID_PK PRIMARY KEY (User_ID)
 );

@@ -24,6 +24,7 @@ public class RentAToolDBUtil {
 
             String query12 = "SELECT * FROM MytestDB.tools where availability = true";
 
+
             assert db != null;
             PreparedStatement statement = null;
             try {
@@ -36,7 +37,7 @@ public class RentAToolDBUtil {
 
                     int Item_ID = Integer.parseInt(rs.getString("Item_ID"));
                     String Tool_name = rs.getString("Tool_name");
-                    boolean availability = Boolean.parseBoolean(rs.getString("Availability"));
+                    boolean availability = rs.getBoolean("Availability");
                     String Price_firstDay = rs.getString("Price_firstDay");
                     String Price_followingDays = rs.getString("Price_followingDays");
                     String Tool_info = rs.getString("Tool_info");

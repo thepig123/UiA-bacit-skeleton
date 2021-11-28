@@ -27,12 +27,3 @@ values ('Leilighet på Hovden',
         'Egne regler',
         'Større utstyr'
         );
-
-
-    delete from tools where Item_ID = 29;
-
-select * from tools;
-
-SELECT * FROM tools
-Order BY Item_ID
-LIMIT 5;

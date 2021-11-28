@@ -35,27 +35,32 @@ import static bacit.web.Servlet.UTILS.PasswordEncrypting.encrypt;
         int userPhonenumber = Integer.parseInt(request.getParameter("User_PhoneNumber"));
 
         Connection db = null;
-        try {
-            PrintWriter out = response.getWriter();
-            db = DBUtils.getINSTANCE().getConnection();
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
+        PrintWriter out = null;
 
-        String query3 = "insert into MytestDB.user (User_firstName, User_lastName, User_Email, User_password, User_PhoneNumber) " +
-                "values(?, ?, ?, ?, ?); ";
-assert db != null;
-        PreparedStatement statement = null;
-        try {
-            statement = db.prepareStatement(query3);
-            statement.setString(1, firstName);
-            statement.setString(2, lastName);
-            statement.setString(3, userEmail);
-            statement.setString(4, encrypt(userPassword));
-            statement.setInt(5, userPhonenumber);
+            try {
+                db = DBUtils.getINSTANCE().getConnection();
 
-            statement.execute();
-        } catch (SQLException e) {
+                String query60 = "insert into MytestDB.user (User_firstName, User_lastName, User_Email, User_password, User_PhoneNumber) " +
+                        "values(?, ?, ?, ?, ?) ";
+
+
+                assert db != null;
+                PreparedStatement statement = null;
+                try {
+                    statement = db.prepareStatement(query60);
+                    statement.setString(1, firstName);
+                    statement.setString(2, lastName);
+                    statement.setString(3, userEmail);
+                    statement.setString(4, encrypt(userPassword));
+                    statement.setInt(5, userPhonenumber);
+
+                    statement.executeQuery();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -68,7 +73,6 @@ assert db != null;
         out.println("</head>");
         out.println("<body>");
         out.println("<img src=\"amv-logo.png\" alt=\"amv logo\" width=\"241\" height=\"131\" id=\"AMVLogo\"> <br>");
-        out.println("<div id=\"Add User\">");
         out.println("<h1>Login</h1>");
         out.println("<form action=\"AddUserServlet\" method=\"post\">");
         out.println("<label for=\"User_firstName\">First Name:</label> <br>");

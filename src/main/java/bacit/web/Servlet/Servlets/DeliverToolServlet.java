@@ -2,22 +2,24 @@ package bacit.web.Servlet.Servlets;
 
 import bacit.web.Servlet.UTILS.DBUtils;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.*;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import static bacit.web.Servlet.Servlets.CredentialCheckServlet.getUserID;
 import static bacit.web.Servlet.UTILS.ListRentalHistoryDBUtil.ListRentals;
 
-@WebServlet(name = "RentTool", value = "/RentToolServlet")
-public class RentAToolServlet extends HttpServlet {
+
+@WebServlet(name = "DeliverToolServlet", value = "/DeliverToolServlet")
+public class DeliverToolServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
@@ -42,7 +44,6 @@ public class RentAToolServlet extends HttpServlet {
         try {
             db = DBUtils.getINSTANCE().getConnection();
 
-            String query20 = "Insert into MytestDB.rental_system (User_ID, Item_Id, Rental_startDate, Rental_endDate) values (?,?,?,?)";
 
             String query22 = "Update MytestDB.tools set availability=false where Item_ID=?";
 
@@ -50,7 +51,7 @@ public class RentAToolServlet extends HttpServlet {
             PreparedStatement statement = null;
             PreparedStatement statement2 = null;
             try {
-                statement = db.prepareStatement(query20);
+
                 statement2 = db.prepareStatement(query22);
 
                 HttpSession session = request.getSession();

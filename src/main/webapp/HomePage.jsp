@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styleuser.css">
 </head>
 <body>
+
 <ul id="NavBar">
-    <li class="NavOption"><a href="DisplayToolServlet">Rent a tool</a></li>
-    <li class="NavOption"><a href="index.jsp">Log out</a></li>
+    <img src="amv-logo.png" alt="amv logo" id="AMVLogo">
+    <li class="NavOption"><a href="DisplayToolServlet">RENT A TOOL</a></li>
+    <li class="NavOption"><a href="index.jsp">LOG OUT</a></li>
 </ul>
-<img src="amv-logo.png" alt="amv logo" width="241" height="131" id="AMVLogo"> <br>
-<ul id="Options">
-    <li class="NavOption"><a href="${pageContext.request.contextPath}/fileDownload">Download lease</a></li>
-    <li class="NavOption"><a href="fileUpload">Upload lease</a> </li>
-    <li class="NavOption"><a href="">Equipment list</a></li>
-    <li class="NavOption"><a href="AddToolsServlet">Add item</a></li>
-    </ul>
+
+<div class="bottomPart">
+    <h3> Trenger hjelp? Kontakt oss <u>her</u></h3>
+</div>
 </body>
 </html>

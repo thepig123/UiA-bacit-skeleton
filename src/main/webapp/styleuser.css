@@ -1,0 +1,160 @@
+body {
+    background-color:white;
+    background-image: url("amvheader.png");
+    margin:0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.form {
+    text-align: center;
+    font-family: "Times New Roman",Serif;
+}
+h1 {
+    color: #041e42;
+}
+
+button {
+    color: white;
+    padding: 14px 20px;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    text-shadow: 5px 5px 15px black;
+    font-weight: bold;
+    font-family: Arial;
+}
+button:hover {
+    opacity: 0.8;
+}
+[type=text], input[type=password]{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+#AMVLogo {
+    position: absolute;
+    width: 8%;
+    left: 0;
+    padding:10px;
+
+}
+
+#NavBar {
+    background-color: #F0B223FF;
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    box-shadow: 3px 5px 5px grey;
+    display: inline-block;
+    z-index: 2;
+}
+
+#NavBar li{
+    margin-top: 20px;
+    display: inline-block;
+    margin-left: 20%;
+}
+
+.NavOption {
+    font-size: 20px;
+    text-shadow: 5px 5px 15px black;
+    font-weight: bold;
+    font-family: Arial;
+    transition: transform .8s;
+
+}
+
+
+.NavOption a {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.NavOption a:hover {
+    border-radius: 10px;
+    transform: scale(1.3);
+}
+
+#myBtn{
+    position: absolute;
+    left: 500px;
+}
+
+.VerktøyInfo {
+    float: left;
+}
+
+.VerktøyBilde {
+    float: left;
+
+}
+
+#Options{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 10%;
+    background-color: #5b5b5b;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px grey;
+    text-align: center;
+    z-index:-1
+
+
+}
+#Options a{
+    margin-top: 120px;
+}
+.welcomeBox{
+    position: absolute;
+    text-align: center;
+    color: white;
+}
+
+#uploadFile{
+    position: absolute;
+    font-size: 30px;
+    margin-top: -50px;
+}
+
+.header{
+    background-image: url("amvheader.png");
+    padding: 80px;
+    height: 80px;
+    background-position: center;
+}
+h3{
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+.bottomPart{
+    width: 100%;
+    height: 300px;
+    background-color: #F0B223FF;
+    position: absolute;
+    margin-top: 700px;
+    background-image: url("amv.jpg");
+    box-shadow: 0px 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.bottomPart{
+    width: 100%;
+    position: absolute;
+    height: 200px;
+    background-color: #F0B223FF;
+    bottom: 0;
+    background-image: url("amv.jpg");
+    box-shadow: 0px 0 10px rgba(0, 0, 0, 0.8);
+}
