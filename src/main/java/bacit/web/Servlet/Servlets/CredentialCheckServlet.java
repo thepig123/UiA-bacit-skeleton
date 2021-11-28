@@ -37,8 +37,6 @@ public class CredentialCheckServlet extends HttpServlet {
         String userPassword = request.getParameter("User_Password");
 
 
-
-        /* Få hjelp til å fikse admincheck*/
         if (CheckAdmin(userEmail, userPassword,out)) {
             request.getRequestDispatcher("Admin.jsp").forward(request,response);
             HttpSession session = request.getSession();
